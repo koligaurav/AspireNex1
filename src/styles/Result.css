@@ -1,51 +1,386 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
-
-.flex-center{
-    display: flex;
-    justify-content: center;    
-    flex-direction: column;
-    border: 1px solid #cecece;
-    padding: 3em 4em;
-    gap: 1em;
+:root {
+  --primary-color: #0DFF92;
+  --accent-color: #faff5a;
+  --dark-color: #222222;
+  --light-color: #f0f0f0;
+  --bg-color: #1e1e1e;
 }
 
-.container .flex{
-    display: flex;
-    justify-content: space-between;
-    
+body, html {
+  height: 100%;
+  background: var(--bg-color);
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  color: var(--light-color);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  display: block;
+  position: relative;
+  margin: 40px auto;
+  padding: 20px;
+  width: 90%;
+  max-width: 800px;
+  background: var(--dark-color);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.container ol li {
+  font-size: 1.4em;
+  color: #cecece;
+  margin-bottom: 1em;
+}
+
+.start {
+  display: flex;
+  justify-content: center;
+  padding-top: 2em;
+}
+
+.start .btn {
+  padding: 0.6em 2em;
+  border: none;
+  border-radius: 0.3em;
+  font-size: 1.2em;
+  color: var(--dark-color);
+  text-decoration: none;
+  background-color: var(--accent-color);
+  transition: background-color 0.3s, color 0.3s;
+  cursor: pointer;
+}
+
+.start .btn:hover {
+  background-color: var(--primary-color);
+  color: var(--light-color);
+}
+
+#form {
+  display: flex;
+  justify-content: center;
+  margin-top: 4em;
+}
+
+#form .userid {
+  padding: 0.7em 2em;
+  width: 50%;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-size: 1em;
+  transition: border-color 0.3s;
+}
+
+#form .userid:focus {
+  border-color: var(--primary-color);
+  outline: none;
+}
+
+.container ul {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+ul li {
+  color: #cecece;
+  display: block;
+  position: relative;
+  width: 100%;
+  padding: 20px;
+  margin-bottom: 10px;
+  background: var(--bg-color);
+  border-radius: 8px;
+  transition: background 0.3s, color 0.3s;
+}
+
+ul li:hover {
+  background: var(--dark-color);
+  color: var(--primary-color);
+}
+
+ul li input[type=radio] {
+  position: absolute;
+  visibility: hidden;
+}
+
+ul li label {
+  display: block;
+  position: relative;
+  font-weight: 400;
+  font-size: 1.25em;
+  padding-left: 50px;
+  cursor: pointer;
+}
+
+ul li .check {
+  display: block;
+  position: absolute;
+  border: 2px solid var(--light-color);
+  border-radius: 50%;
+  height: 25px;
+  width: 25px;
+  top: 50%;
+  left: 15px;
+  transform: translateY(-50%);
+  transition: border 0.3s;
+}
+
+ul li:hover .check {
+  border: 2px solid var(--primary-color);
+}
+
+ul li .check::before {
+  content: '';
+  display: block;
+  position: absolute;
+  border-radius: 50%;
+  height: 15px;
+  width: 15px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--bg-color);
+  transition: background 0.3s;
+}
+
+input[type=radio]:checked ~ .check {
+  border: 2px solid var(--primary-color);
+}
+
+input[type=radio]:checked ~ .check::before {
+  background: var(--primary-color);
+}
+
+input[type=radio]:checked ~ label {
+  color: var(--primary-color);
+}
+
+/* Flexbox Centering */
+.flex-center {
+  display: flex;
+  justify-content: center;    
+  flex-direction: column;
+  border: 1px solid #cecece;
+  padding: 3em 4em;
+  gap: 1em;
+}
+
+.container .flex {
+  display: flex;
+  justify-content: space-between;
 }
 
 .container .flex span {
-    font-size: 1.4em;
-    color: #cecece;
+  font-size: 1.4em;
+  color: #cecece;
 }
 
 .container .flex span.achive {
-    font-weight: bold;
-    color: #ff2a66;
-    color: #2aff95;
+  font-weight: bold;
+  color: #2aff95;
 }
 
+/* Table Styling */
 table {
-    width: 100%;
+  width: 100%;
 }
 
 .table-header {
-    color: #cecece;
-    font-size: 1.1em;
-    text-align: center;
-    background: #212121;
-    padding: 18px 0;
+  color: #cecece;
+  font-size: 1.1em;
+  text-align: center;
+  background: #212121;
+  padding: 18px 0;
 }
 
 .table-body {
-    font-size: 1.1em;
-    text-align: center;
-    /* color: #cecece; */
-    background: #d8d8d8;
-    padding: 18px 0;
+  font-size: 1.1em;
+  text-align: center;
+  background: #d8d8d8;
+  padding: 18px 0;
 }
 
-.table-header > tr > td{
-    border: 1px solid #faff5a;   
+.table-header > tr > td {
+  border: 1px solid var(--accent-color);   
+}
+
+/* Responsive Styles */
+
+/* Large screens (desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  .container {
+    padding: 30px;
+  }
+
+  .start .btn {
+    padding: 0.8em 2.2em;
+  }
+
+  #form .userid {
+    width: 60%;
+    font-size: 1.1em;
+  }
+
+  ul li label {
+    font-size: 1.4em;
+  }
+
+  .flex-center {
+    padding: 4em 5em;
+  }
+
+  .container .flex span {
+    font-size: 1.6em;
+  }
+
+  .table-header, .table-body {
+    font-size: 1.2em;
+  }
+}
+
+/* Medium screens (tablets, 768px and up) */
+@media (max-width: 1199px) and (min-width: 768px) {
+  .container {
+    padding: 25px;
+  }
+
+  .start .btn {
+    padding: 0.7em 2em;
+  }
+
+  #form .userid {
+    width: 55%;
+    font-size: 1em;
+  }
+
+  ul li label {
+    font-size: 1.3em;
+  }
+
+  .flex-center {
+    padding: 3em 4em;
+  }
+
+  .container .flex span {
+    font-size: 1.5em;
+  }
+
+  .table-header, .table-body {
+    font-size: 1.1em;
+  }
+}
+
+/* Small screens (phones, 767px and down) */
+@media (max-width: 767px) {
+  .container {
+    margin: 30px auto;
+    padding: 20px;
+    width: 95%;
+  }
+
+  .start {
+    flex-direction: column;
+    padding-top: 1em;
+  }
+
+  .start .btn {
+    padding: 0.6em 1.8em;
+    font-size: 1em;
+  }
+
+  #form {
+    flex-direction: column;
+    margin-top: 2em;
+  }
+
+  #form .userid {
+    width: 80%;
+    font-size: 0.9em;
+    margin-bottom: 1em;
+  }
+
+  ul li {
+    padding: 15px;
+  }
+
+  ul li label {
+    font-size: 1.1em;
+    padding-left: 40px;
+  }
+
+  ul li .check {
+    height: 20px;
+    width: 20px;
+    left: 10px;
+  }
+
+  ul li .check::before {
+    height: 12px;
+    width: 12px;
+  }
+
+  .flex-center {
+    padding: 2em 3em;
+  }
+
+  .container .flex {
+    flex-direction: column;
+    gap: 1em;
+  }
+
+  .container .flex span {
+    font-size: 1.3em;
+  }
+
+  table, .table-header, .table-body {
+    font-size: 1em;
+  }
+}
+
+/* Extra small screens (phones, 480px and down) */
+@media (max-width: 480px) {
+  .container {
+    margin: 20px auto;
+    padding: 15px;
+  }
+
+  .start .btn {
+    padding: 0.5em 1.5em;
+    font-size: 0.9em;
+  }
+
+  #form .userid {
+    width: 90%;
+    font-size: 0.8em;
+  }
+
+  ul li {
+    padding: 10px;
+  }
+
+  ul li label {
+    font-size: 1em;
+    padding-left: 30px;
+  }
+
+  ul li .check {
+    height: 18px;
+    width: 18px;
+    left: 8px;
+  }
+
+  ul li .check::before {
+    height: 10px;
+    width: 10px;
+  }
+
+  .flex-center {
+    padding: 2em 2em;
+  }
 }

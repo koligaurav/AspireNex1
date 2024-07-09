@@ -160,3 +160,133 @@ input[type=radio]:checked ~ .check::before {
 input[type=radio]:checked ~ label {
   color: var(--primary-color);
 }
+
+/* Responsive Styles */
+
+/* Large screens (desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  .container {
+    padding: 30px;
+  }
+
+  .start .btn {
+    padding: 0.8em 2.2em;
+  }
+
+  #form .userid {
+    width: 60%;
+    font-size: 1.1em;
+  }
+
+  ul li label {
+    font-size: 1.4em;
+  }
+}
+
+/* Medium screens (tablets, 768px and up) */
+@media (max-width: 1199px) and (min-width: 768px) {
+  .container {
+    padding: 25px;
+  }
+
+  .start .btn {
+    padding: 0.7em 2em;
+  }
+
+  #form .userid {
+    width: 55%;
+    font-size: 1em;
+  }
+
+  ul li label {
+    font-size: 1.3em;
+  }
+}
+
+/* Small screens (phones, 767px and down) */
+@media (max-width: 767px) {
+  .container {
+    margin: 30px auto;
+    padding: 20px;
+    width: 95%;
+  }
+
+  .start {
+    flex-direction: column;
+    padding-top: 1em;
+  }
+
+  .start .btn {
+    padding: 0.6em 1.8em;
+    font-size: 1em;
+  }
+
+  #form {
+    flex-direction: column;
+    margin-top: 2em;
+  }
+
+  #form .userid {
+    width: 80%;
+    font-size: 0.9em;
+    margin-bottom: 1em;
+  }
+
+  ul li {
+    padding: 15px;
+  }
+
+  ul li label {
+    font-size: 1.1em;
+    padding-left: 40px;
+  }
+
+  ul li .check {
+    height: 20px;
+    width: 20px;
+    left: 10px;
+  }
+
+  ul li .check::before {
+    height: 12px;
+    width: 12px;
+  }
+}
+
+/* Extra small screens (phones, 480px and down) */
+@media (max-width: 480px) {
+  .container {
+    margin: 20px auto;
+    padding: 15px;
+  }
+
+  .start .btn {
+    padding: 0.5em 1.5em;
+    font-size: 0.9em;
+  }
+
+  #form .userid {
+    width: 90%;
+    font-size: 0.8em;
+  }
+
+  ul li {
+    padding: 10px;
+  }
+
+  ul li label {
+    font-size: 1em;
+    padding-left: 30px;
+  }
+
+  ul li .check {
+    height: 18px;
+    width: 18px;
+    left: 8px;
+  }
+
+  ul li .check::before {
+    height: 10px;
+    width: 10px;
+  }
+}
